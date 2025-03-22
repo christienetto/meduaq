@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  portfolio-backend:
+    build: .
+    container_name: portfolio-backend
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data/photos:/app/photos
+      - ./database.db:/app/database.db
+    environment:
+      - JWT_SECRET_KEY=your-secure-jwt-secret-key
